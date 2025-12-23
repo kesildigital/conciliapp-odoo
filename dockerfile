@@ -1,4 +1,4 @@
-FROM odoo:18.0
+FROM odoo:17.0
 
 # Copiamos tus addons al path de addons extra
 COPY ./addons /mnt/extra-addons
