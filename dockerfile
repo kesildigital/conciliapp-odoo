@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  && rm -rf /var/lib/apt/lists/*
 
 # Copiamos tus addons al path de addons extra
-COPY ./addons /mnt/extra-addons
+COPY ./addons /opt/extra-addons
 
 # (Opcional) dar permisos si hiciera falta
 RUN chown -R odoo:odoo /mnt/extra-addons
@@ -17,4 +17,4 @@ RUN chown -R odoo:odoo /mnt/extra-addons
 USER odoo
 
 # Aseguramos que Odoo cargue tus addons
-CMD ["odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons"]
+CMD ["odoo", "--addons-path=/usr/lib/python3/dist-packages/odoo/addons,/opt/extra-addons"]
