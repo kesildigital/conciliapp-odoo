@@ -14,6 +14,7 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "views/account_payment_views.xml",
     ],
     "installable": True,
     "application": False,

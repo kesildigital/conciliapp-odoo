@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_account_payment_form_conciliapp" model="ir.ui.view">
+    <field name="name">account.payment.form.conciliapp</field>
+    <field name="model">account.payment</field>
+    <field name="inherit_id" ref="account.view_account_payment_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//sheet/notebook" position="inside">
+        <page string="Conciliapp">
+          <group>
+            <field name="conciliapp_sync_state" readonly="1" />
+            <field name="conciliapp_external_id" readonly="1" />
+            <field name="conciliapp_last_error" readonly="1" />
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>
