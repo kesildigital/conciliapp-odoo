@@ -1,6 +1,9 @@
 from odoo import api, fields, models
 import json
+import logging, os
 
+_logger = logging.getLogger(__name__)
+_logger.warning("CONCILIAPP DEBUG: loading payment_check.py from %s", os.path.abspath(__file__))
 
 class ConciliappPaymentCheck(models.Model):
     _name = "conciliapp.payment.check"
