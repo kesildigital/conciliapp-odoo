@@ -11,9 +11,9 @@
     "license": "LGPL-3",
     "depends": ["base"],  # por ahora sin account
     "data": [
-        #"security/ir.model.access.csv",
+        "security/ir.model.access.csv",
+        "views/conciliapp_payment_check_views.xml",
         "views/conciliapp_menu.xml",
-        "views/payment_check_views.xml",
     ],
     "installable": True,
     "application": True,
