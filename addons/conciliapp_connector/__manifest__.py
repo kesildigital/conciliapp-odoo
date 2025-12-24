@@ -14,8 +14,6 @@
     ],
     "data": [
         "security/ir.model.access.csv",
-        "views/account_payment_views.xml",
-        "views/conciliapp_reconcile_wizard_views.xml",
     ],
     "installable": True,
     "application": False,
