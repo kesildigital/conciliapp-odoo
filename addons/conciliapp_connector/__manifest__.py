@@ -9,13 +9,12 @@
     "website": "https://kesildigital.com",
     "category": "Accounting",
     "license": "LGPL-3",
-    "depends": [
-        "account",
-    ],
+    "depends": ["base"],  # por ahora sin account
     "data": [
         "security/ir.model.access.csv",
-        "views/account_payment_views.xml",
+        "views/conciliapp_menu.xml",
+        "views/payment_check_views.xml",
     ],
     "installable": True,
-    "application": False,
+    "application": True,
 }

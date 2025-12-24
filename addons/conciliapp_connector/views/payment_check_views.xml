@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="conciliapp_payment_check_action" model="ir.actions.act_window">
+    <field name="name">Validación de pagos</field>
+    <field name="res_model">conciliapp.payment.check</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="conciliapp_payment_check_tree" model="ir.ui.view">
+    <field name="name">conciliapp.payment.check.tree</field>
+    <field name="model">conciliapp.payment.check</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="create_date" />
+        <field name="name" />
+        <field name="amount" />
+        <field name="currency_id" />
+        <field name="payment_date" />
+        <field name="customer_name" />
+        <field name="state" />
+        <field name="result_message" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="conciliapp_payment_check_form" model="ir.ui.view">
+    <field name="name">conciliapp.payment.check.form</field>
+    <field name="model">conciliapp.payment.check</field>
+    <field name="arch" type="xml">
+      <form string="Validación de pago">
+        <header>
+          <button name="action_check" string="Validar" type="object"
+            class="oe_highlight" invisible="state in ('checking')" />
+          <field name="state" widget="statusbar"
+            statusbar_visible="draft,checking,found,not_found,mismatch,error" />
+        </header>
+        <sheet>
+          <group>
+            <field name="name" />
+            <field name="amount" />
+            <field name="currency_id" />
+            <field name="payment_date" />
+            <field name="customer_name" />
+          </group>
+
+          <group string="Resultado">
+            <field name="result_message" readonly="1" />
+            <field name="response_json" readonly="1" widget="text" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+</odoo>
