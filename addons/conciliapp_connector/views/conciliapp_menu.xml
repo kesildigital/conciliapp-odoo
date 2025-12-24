@@ -3,6 +3,6 @@
   <menuitem id="conciliapp_root_menu" name="Conciliapp" sequence="10" />
 
   <menuitem id="conciliapp_payments_menu" name="Validación de pagos"
-    parent="conciliapp_root_menu" sequence="10"
-    action="conciliapp_payment_check_action" />
+    parent="conciliapp_root_menu" sequence="10" />
+
 </odoo>
