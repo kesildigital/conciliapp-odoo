@@ -5,14 +5,17 @@
     <field name="model">account.payment</field>
     <field name="inherit_id" ref="account.view_account_payment_form" />
     <field name="arch" type="xml">
-      <xpath expr="//notebook" position="inside">
-        <page string="Conciliapp">
-          <group>
-            <field name="conciliapp_sync_state" readonly="1" />
-            <field name="conciliapp_external_id" readonly="1" />
-            <field name="conciliapp_last_error" readonly="1" />
-          </group>
-        </page>
+      <!-- El notebook base es autocerrado: lo reemplazamos por uno real con nuestra pestaña -->
+      <xpath expr="//notebook[@name='payment_notebook']" position="replace">
+        <notebook name="payment_notebook" colspan="2">
+          <page string="Conciliapp">
+            <group>
+              <field name="conciliapp_sync_state" readonly="1" />
+              <field name="conciliapp_external_id" readonly="1" />
+              <field name="conciliapp_last_error" readonly="1" />
+            </group>
+          </page>
+        </notebook>
       </xpath>
     </field>
   </record>
