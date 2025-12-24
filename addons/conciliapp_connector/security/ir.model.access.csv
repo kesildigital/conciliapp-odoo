@@ -1,1 +1,2 @@
-access_conciliapp_payment_check_user,access.conciliapp.payment.check.user,model_conciliapp_payment_check,base.group_user,1,1,1,1
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_conciliapp_payment_check_user,conciliapp.payment.check user,model_conciliapp_payment_check,base.group_user,1,1,1,1
