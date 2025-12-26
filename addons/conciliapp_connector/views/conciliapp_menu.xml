@@ -1,7 +1,17 @@
 <odoo>
-  <menuitem id="conciliapp_root_menu" name="Conciliapp" />
+  <menuitem id="conciliapp_root_menu" name="Conciliapp" sequence="10" />
 
-  <menuitem id="conciliapp_payments_menu" name="Validación de pagos"
-    parent="conciliapp_root_menu" action="conciliapp_payment_check_action"
-    sequence="10" />
+  <!-- Principal -->
+  <menuitem id="conciliapp_reconciled_menu" name="Pagos conciliados"
+    parent="conciliapp_root_menu"
+    action="conciliapp_payment_check_action_reconciled" sequence="10" />
+
+  <!-- Operación -->
+  <menuitem id="conciliapp_validate_menu" name="Validar pagos"
+    parent="conciliapp_root_menu"
+    action="conciliapp_payment_check_action_pending" sequence="20" />
+
+  <!-- Catálogo bancos (para llenar el dropdown) -->
+  <menuitem id="conciliapp_banks_menu" name="Bancos" parent="conciliapp_root_menu"
+    action="conciliapp_bank_action" sequence="30" />
 </odoo>
