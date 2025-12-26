@@ -56,10 +56,10 @@ class ConciliappPaymentCheck(models.Model):
         }
 
         try:
-            url = f"{base_url.rstrip('/')}/payments/validate"
+            url = f"{base_url.rstrip('/')}"
             _logger.warning("Conciliapp validate URL => %s", url)   
             resp = requests.post(
-                f"{base_url.rstrip('/')}/payments/validate",
+                f"{base_url.rstrip('/')}",
                 json=payload,
                 timeout=20,
             )
