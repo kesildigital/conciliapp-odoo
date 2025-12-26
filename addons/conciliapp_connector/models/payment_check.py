@@ -3,7 +3,8 @@ import requests
 
 from odoo import models, fields, _
 from odoo.exceptions import UserError
-
+import logging
+_logger = logging.getLogger(__name__)
 
 class ConciliappPaymentCheck(models.Model):
     _name = "conciliapp.payment.check"
@@ -55,6 +56,8 @@ class ConciliappPaymentCheck(models.Model):
         }
 
         try:
+            url = f"{base_url.rstrip('/')}/payments/validate"
+            _logger.warning("Conciliapp validate URL => %s", url)   
             resp = requests.post(
                 f"{base_url.rstrip('/')}/payments/validate",
                 json=payload,
