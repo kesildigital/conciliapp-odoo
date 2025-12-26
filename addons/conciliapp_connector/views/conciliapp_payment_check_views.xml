@@ -23,8 +23,7 @@
       <form string="Validación de pago">
         <header>
           <button name="action_validate_payment" string="Validar en Conciliapp"
-            type="object" class="btn-primary"
-            attrs="{'invisible': [('status', '=', 'reconciled')]}" />
+            type="object" class="btn-primary" />
           <field name="status" widget="statusbar"
             statusbar_visible="pending,failed,reconciled" />
         </header>
@@ -53,10 +52,9 @@
     <field name="res_model">conciliapp.payment.check</field>
     <field name="view_mode">tree,form</field>
     <field name="domain">[('status','=','reconciled')]</field>
-    <field name="context">{'search_default_reconciled': 1}</field>
   </record>
 
-  <!-- ACTION: pendientes (opcional, pero útil para operar) -->
+  <!-- ACTION: pendientes -->
   <record id="conciliapp_payment_check_action_pending"
     model="ir.actions.act_window">
     <field name="name">Validar pagos</field>
