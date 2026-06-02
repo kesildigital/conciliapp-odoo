@@ -11,6 +11,10 @@ jobs:
   delete-merged-branch:
     if: >-
       github.event.pull_request.merged == true &&
+      (
+        github.event.pull_request.base.ref == 'development' ||
+        github.event.pull_request.base.ref == 'develop'
+      ) &&
       !(
         github.event.pull_request.base.ref == 'production' &&
         (
