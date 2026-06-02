@@ -1,0 +1,43 @@
+name: Delete merged branch
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  delete-merged-branch:
+    if: >-
+      github.event.pull_request.merged == true &&
+      !(
+        github.event.pull_request.base.ref == 'production' &&
+        (
+          github.event.pull_request.head.ref == 'development' ||
+          github.event.pull_request.head.ref == 'develop'
+        )
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete head branch after merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+
+            if (pr.head.repo.full_name !== context.repo.full_name) {
+              core.info('Skipping branch deletion for fork PR');
+              return;
+            }
+
+            try {
+              await github.rest.git.deleteRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `heads/${pr.head.ref}`,
+              });
+              core.info(`Deleted branch ${pr.head.ref}`);
+            } catch (error) {
+              core.warning(`Could not delete branch ${pr.head.ref}: ${error.message}`);
+            }
